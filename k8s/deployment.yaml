@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simplego-pod
+  labels:
+    app: simplego
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: simplego
+  template:
+    metadata:
+      labels:
+        app: simplego
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+        - name: simplego
+          image: themessaround/simplego:v1.0
+          ports:
+            - containerPort: 80
+              hostPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              cpu: "2000m"
+              memory: 600Mi
+            requests:
+              cpu: "1000m"
+              memory: 300Mi
