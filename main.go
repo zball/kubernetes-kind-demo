@@ -6,7 +6,7 @@ import (
 )
 
 func hello(w http.ResponseWriter, req *http.Request) {
-	w.Write([]byte("hello world - changed"))
+	w.Write([]byte("hello world - flux"))
 }
 
 func headers(w http.ResponseWriter, req *http.Request) {
@@ -23,7 +23,7 @@ func main() {
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/headers", headers)
 
-	fmt.Println("still listening on port 80")
+	fmt.Println("listening on port 80 - flux")
 
 	err := http.ListenAndServe(":80", nil)
 	fmt.Println(err)

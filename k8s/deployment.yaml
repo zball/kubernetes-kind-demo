@@ -19,7 +19,7 @@ spec:
       terminationGracePeriodSeconds: 60
       containers:
         - name: simplego
-          image: themessaround/simplego:v1.0
+          image: themessaround/simplego:v1.0.1
           ports:
             - containerPort: 80
               hostPort: 80
